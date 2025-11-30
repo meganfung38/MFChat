@@ -5,7 +5,6 @@ config module, load user config.py to extend default config
 import os
 from os.path import dirname, realpath, join
 import pydash as _
-import imp
 from .common import path_import, assign_module, printError
 
 def initConfig(conf):

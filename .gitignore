@@ -108,7 +108,7 @@ venv.bak/
 /temp/
 /filedb/
 /config.py
-/bot.py
+# /bot.py  # COMMENTED OUT - we want to commit MFChat bot.py
 /package-lock.json
 /yarn.lock
 /node_modules
@@ -121,3 +121,18 @@ venv.bak/
 *.db
 .DS_Store
 *~
+
+# MFChat - Exclude sensitive SFDC data
+SFDC_Campaign_Clarity/.env
+SFDC_Campaign_Clarity/.env.*
+SFDC_Campaign_Clarity/data/field_mappings.json
+SFDC_Campaign_Clarity/data/brian*
+SFDC_Campaign_Clarity/feedback_+_samples/
+SFDC_Campaign_Clarity/logs/
+SFDC_Campaign_Clarity/*.xlsx
+SFDC_Campaign_Clarity/*.xls
+SFDC_Campaign_Clarity/*.log
+SFDC_Campaign_Clarity/cache/
+SFDC_Campaign_Clarity/venv/
+SFDC_Campaign_Clarity/__pycache__/
+SFDC_Campaign_Clarity/src/__pycache__/
