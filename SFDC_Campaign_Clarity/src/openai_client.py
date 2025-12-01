@@ -257,8 +257,10 @@ class OpenAIClient:
             return description, prompt
             
         except Exception as e:
-            logging.error(f"Failed to generate description for campaign {campaign.get('Id')}: {e}")
-            return "Error generating description", prompt
+            error_msg = str(e)
+            logging.error(f"Failed to generate description for campaign {campaign.get('Id')}: {error_msg}")
+            print(f"  ❌ OpenAI API Error: {error_msg}")  # Print to console for visibility
+            return f"Error generating description: {error_msg}", prompt
     
     def process_campaigns_batch(self, campaigns: pd.DataFrame, context_manager, batch_size: int = 10) -> pd.DataFrame:
         """Process campaigns in batches to generate AI descriptions

@@ -71,6 +71,16 @@ def generate_campaign_description(
             enriched_context
         )
         
+        # Check if description generation failed
+        if description.startswith("Error generating"):
+            return {
+                "success": False,
+                "error": f"AI description generation failed: {description}",
+                "ai_description": "",
+                "campaign_name": campaign_data.get('Name', 'Unknown') if isinstance(campaign_data, dict) else 'Unknown',
+                "channel": campaign_data.get('Channel__c', 'Unknown') if isinstance(campaign_data, dict) else 'Unknown'
+            }
+        
         # Determine prompt type
         prompt_type = openai_client._get_prompt_type(campaign_series)
         
